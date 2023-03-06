@@ -1,0 +1,42 @@
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg pt-4">
+  <table class="w-full text-sm text-left text-gray-500">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+      <tr>
+        <th scope="col" class="px-6 py-3">ID</th>
+        <th scope="col" class="px-6 py-3">Nombre</th>
+        <th scope="col" class="px-6 py-3">NIT</th>
+        <th scope="col" class="px-6 py-3">Fecha de fundación</th>
+        <th scope="col" class="px-6 py-3">Dirección</th>
+        <th scope="col" class="px-6 py-3">
+          <span class="sr-only">Editar</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody class="table-row-group">
+      <tr *ngFor="let empresa of empresas">
+        <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+          {{ empresa.id }}
+        </td>
+        <td class="px-6 py-4">{{ empresa.nombre }}</td>
+        <td class="px-6 py-4">{{ empresa.NIT }}</td>
+        <td class="px-6 py-4">{{ empresa.fechaDeFundacion }}</td>
+        <td class="px-6 py-4">{{ empresa.direccion }}</td>
+        <td class="px-6 py-4 text-right">
+          <button
+            type="button"
+            class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+            (click)="eliminarEmpresa(empresa.id)"
+          >
+            Elimninar
+          </button>
+          <a
+            href="#"
+            [routerLink]="['/update', empresa.id]"
+            class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+            >Editar</a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
